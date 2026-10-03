@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaqub Ajisefini | Salesforce Developer & Administrator Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        salesforce: {
+                            blue: '#0176D3',
+                            darkBlue: '#032D60',
+                            lightBlue: '#1B96FF',
+                            sky: '#F4F6F9',
+                            accent: '#FFB75D'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Alpine.js for Interactivity -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-salesforce-sky text-slate-800 font-sans antialiased selection:bg-salesforce-blue selection:text-white" x-data="{ mobileMenuOpen: false, activeFilter: 'all' }">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo / Brand -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-salesforce-darkBlue to-salesforce-blue flex items-center justify-center text-white shadow-md shadow-salesforce-blue/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-cloud text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-slate-900 text-lg leading-tight group-hover:text-salesforce-blue transition-colors">Yaqub Ajisefini</span>
+                        <span class="block text-xs font-medium text-slate-500">Salesforce Dev & Admin</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600">
+                    <a href="#about" class="hover:text-salesforce-blue transition-colors">About</a>
+                    <a href="#skills" class="hover:text-salesforce-blue transition-colors">Core Competencies</a>
+                    <a href="#experience" class="hover:text-salesforce-blue transition-colors">Experience</a>
+                    <a href="#projects" class="hover:text-salesforce-blue transition-colors">Portfolio</a>
+                    <a href="#contact" class="px-4 py-2 rounded-lg bg-salesforce-blue text-white shadow-sm hover:bg-salesforce-darkBlue transition-all font-semibold">Get in Touch</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2">
+                        <i class="fa-solid" :class="mobileMenuOpen ? 'fa-xmark text-2xl' : 'fa-bars text-xl'"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-salesforce-blue font-medium">About</a>
+            <a href="#skills" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-salesforce-blue font-medium">Core Competencies</a>
+            <a href="#experience" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-salesforce-blue font-medium">Experience</a>
+            <a href="#projects" @click="mobileMenuOpen = false" class="block py-2 text-slate-600 hover:text-salesforce-blue font-medium">Portfolio</a>
+            <a href="#contact" @click="mobileMenuOpen = false" class="block text-center py-2.5 rounded-lg bg-salesforce-blue text-white font-semibold">Get in Touch</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-white via-salesforce-sky to-white py-20 lg:py-28">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#0176D3_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Intro Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-salesforce-blue text-xs font-bold uppercase tracking-wider shadow-sm">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span>Certified Salesforce Administrator & Developer</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Architecting Scalable <span class="text-salesforce-blue">CRM Solutions</span> & Workflows
+                    </h1>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0">
+                        Certified professional with 5 years of technical expertise (including 3 years of enterprise-level delivery) specializing in Apex, LWC, and customized platform architectures that drive exceptional operational efficiency and user adoption[cite: 1].
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-salesforce-blue text-white font-bold shadow-lg shadow-salesforce-blue/25 hover:bg-salesforce-darkBlue hover:shadow-xl transition-all text-center">
+                            View Portfolio Projects
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white text-slate-700 border border-slate-300 font-bold hover:bg-slate-50 transition-all text-center shadow-sm">
+                            Contact Me
+                        </a>
+                    </div>
+                    
+                    <!-- Quick Metrics Bar -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200/80 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <span class="block text-2xl lg:text-3xl font-extrabold text-slate-900">5+</span>
+                            <span class="text-xs font-medium text-slate-500 uppercase">Years Experience</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl lg:text-3xl font-extrabold text-salesforce-blue">87%</span>
+                            <span class="text-xs font-medium text-slate-500 uppercase">Renewal Optimization</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl lg:text-3xl font-extrabold text-slate-900">31%</span>
+                            <span class="text-xs font-medium text-slate-500 uppercase">Case Time Reduction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Code/Apex Preview Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-salesforce-darkBlue rounded-2xl shadow-2xl border border-slate-700 overflow-hidden">
+                        <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span class="text-xs font-mono text-slate-400">BillingAutomationTrigger.cls</span>
+                            <span class="text-xs text-salesforce-lightBlue font-mono font-bold">Apex</span>
+                        </div>
+                        <div class="p-5 font-mono text-xs sm:text-sm text-slate-200 overflow-x-auto leading-relaxed">
+                            <p class="text-purple-400">public with sharing class <span class="text-yellow-300">BillingAutomationService</span> {</p>
+                            <p class="pl-4 text-slate-400">// Enterprise-grade financial workflow optimization</p>
+                            <p class="pl-4 text-blue-400">public static void <span class="text-green-300">processRenewals</span>(List&lt;Account&gt; accList) {</p>
+                            <p class="pl-8 text-slate-300">List&lt;Billing_Record__c&gt; updates = new List&lt;Billing_Record__c&gt;();</p>
+                            <p class="pl-8 text-purple-400">for(Account a : accList) {</p>
+                            <p class="pl-12 text-slate-300">if(a.Late_Renewal_Risk__c == true) {</p>
+                            <p class="pl-16 text-slate-300">updates.add(new Billing_Record__c(Account__c = a.Id, Status__c = 'Optimized'));</p>
+                            <p class="pl-12 text-slate-300">}</p>
+                            <p class="pl-8 text-slate-300">}</p>
+                            <p class="pl-8 text-purple-400">if(!updates.isEmpty()) <span class="text-yellow-300">UPSERT</span> updates;</p>
+                            <p class="pl-4 text-blue-400">}</p>
+                            <p class="text-purple-400">}</p>
+                        </div>
+                        <div class="bg-slate-900/60 px-5 py-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                            <span>Status: Compiled & Deployed Successfully</span>
+                            <span class="text-emerald-400 font-semibold flex items-center"><i class="fa-solid fa-circle text-[8px] mr-1.5 animate-pulse"></i> Active Sandbox</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Competencies / 8 Requested Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-salesforce-blue uppercase tracking-widest">Expertise Matrix</h2>
+                <h3 class="text-3xl font-extrabold text-slate-900">Core Technical Competencies</h3>
+                <p class="text-slate-600">Comprehensive domain mastery ensuring scalable architectural deployments and high user adoption.</p>
+            </div>
+
+            <!-- 8 Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Skill 1 -->
+                <div class="p-6 rounded-2xl bg-salesforce-sky/60 border border-slate-200 hover:border-salesforce-blue hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-salesforce-blue flex items-center justify-center text-xl mb-5 group-hover:bg-salesforce-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">1. Automation & Process Optimization</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Designing complex Salesforce Flows, validation rules, approval processes, and Slack workflow integrations[cite: 1, 2].</p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="p-6 rounded-2xl bg-salesforce-sky/60 border border-slate-200 hover:border-salesforce-blue hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-salesforce-blue flex items-center justify-center text-xl mb-5 group-hover:bg-salesforce-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">2. Data Management & Analytics</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Advanced data governance, custom objects, data mapping, XL-Data Loader, and maintaining 100% data integrity[cite: 1, 2].</p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="p-6 rounded-2xl bg-salesforce-sky/60 border border-slate-200 hover:border-salesforce-blue hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-salesforce-blue flex items-center justify-center text-xl mb-5 group-hover:bg-salesforce-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">3. Integration</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Building secure REST/SOAP APIs, connecting external enterprise systems, and orchestrating smooth data pipelines[cite: 1, 2].</p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="p-6 rounded-2xl bg-salesforce-sky/60 border border-slate-200 hover:border-salesforce-blue hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-salesforce-blue flex items-center justify-center text-xl mb-5 group-hover:bg-salesforce-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">4. Change Management & Adoption</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">End-user enablement, stakeholder coaching, and training power-users to maximize ROI and operational efficiency[cite: 1, 2].</p>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="p-6 rounded-2xl bg-salesforce-sky/60 border border-slate-200 hover:border-salesforce-blue hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-salesforce-blue flex items-center justify-center text-xl mb-5 group-hover:bg-salesforce-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">5. Security & Compliance</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Configuring Salesforce Shield, Multi-Factor Authentication (MFA), Single Sign-On (SSO), profiles, and permission sets[cite: 1, 2].</p>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="p-6 rounded-2xl bg-salesforce-sky/60 border border-slate-200 hover:border-salesforce-blue hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-salesforce-blue flex items-center justify-center text-xl mb-5 group-hover:bg-salesforce-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">6. Reports & Dashboards</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Constructing executive-level tabular, summary, and matrix reports alongside interactive dashboards for real-time insights.</p>
+                </div>
+
+                <!-- Skill 7 -->
+                <div class="p-6 rounded-2xl bg-salesforce-sky/60 border border-slate-200 hover:border-salesforce-blue hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-salesforce-blue flex items-center justify-center text-xl mb-5 group-hover:bg-salesforce-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-code-branch"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">7. Testing & Deployment</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Writing robust Apex test classes (90%+ coverage), sandbox-to-production pipelines, SF DevOps Center, and GitHub CI/CD[cite: 1, 2].</p>
+                </div>
+
+                <!-- Skill 8 -->
+                <div class="p-6 rounded-2xl bg-salesforce-sky/60 border border-slate-200 hover:border-salesforce-blue hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-salesforce-blue flex items-center justify-center text-xl mb-5 group-hover:bg-salesforce-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">8. Troubleshooting</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Diagnosing complex production bottlenecks, debugging Apex logs, root-cause analysis, and resolving bug tickets quickly[cite: 1, 2].</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience & Education Section -->
+    <section id="experience" class="py-20 bg-salesforce-sky/50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-salesforce-blue uppercase tracking-widest">Career Journey</h2>
+                <h3 class="text-3xl font-extrabold text-slate-900">Professional Experience & Credentials</h3>
+                <p class="text-slate-600">Enterprise CRM delivery and continuous technical enablement.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Experience Column -->
+                <div class="lg:col-span-8 space-y-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 relative">
+                        <div class="absolute top-8 right-8 px-3 py-1 bg-emerald-50 text-emerald-600 font-semibold text-xs rounded-full border border-emerald-200">Current Role</div>
+                        <span class="text-xs font-bold text-salesforce-blue uppercase tracking-wider">Moonshot Consulting Group | Houston, TX</span>
+                        <h4 class="text-2xl font-bold text-slate-900 mt-1 mb-2">Salesforce Developer / Administrator</h4>
+                        <span class="text-sm font-medium text-slate-500 block mb-6">February 2025 – Present (Previously Administrator from Oct 2024 – Jan 2025)[cite: 1, 2]</span>
+                        
+                        <ul class="space-y-4 text-slate-600 text-sm">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-salesforce-blue mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Solution Design:</strong> Engineered a custom Lightning Platform billing application for enterprise clients; integrated LWC, Apex, and Flow Builder within a Financial Services Cloud (FSC) environment to streamline operational workflows and drive an 87% reduction in late renewals[cite: 1].</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-salesforce-blue mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>API Integration:</strong> Developed and maintained REST/SOAP API integrations to sync external systems, ensuring high-level application performance and seamless data flow[cite: 1].</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-salesforce-blue mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Case Management:</strong> Optimized Service Cloud pathways by implementing Email-to-Case and Web-to-Case, achieving a 31% reduction in average resolution duration for operations and advisory teams[cite: 1].</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-salesforce-blue mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Security & Compliance:</strong> Tailored Salesforce Shield, MFA, and SSO settings to ensure 100% data security and compliance with enterprise standards[cite: 2].</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-circle-check text-salesforce-blue mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Data Governance & Auditing:</strong> Improved data hygiene across Sales Cloud, built advanced validation rules, resolved production deployment bugs, and managed secure user life-cycle provisioning[cite: 2].</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Education & Certifications Column -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <h4 class="text-lg font-bold text-slate-900 mb-4 flex items-center">
+                            <i class="fa-solid fa-graduation-cap text-salesforce-blue mr-2.5"></i> Education
+                        </h4>
+                        <div class="border-l-2 border-salesforce-blue pl-4 space-y-1">
+                            <h5 class="font-bold text-slate-800 text-sm">BSc Computer Science</h5>
+                            <p class="text-xs text-slate-600">Houston Christian University, Houston, TX[cite: 1]</p>
+                            <p class="text-xs font-semibold text-salesforce-blue mt-1">Graduated 2024[cite: 1]</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <h4 class="text-lg font-bold text-slate-900 mb-4 flex items-center">
+                            <i class="fa-solid fa-award text-salesforce-blue mr-2.5"></i> Certifications
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 rounded-xl bg-salesforce-sky border border-slate-200">
+                                <div class="w-9 h-9 rounded-lg bg-salesforce-blue text-white flex items-center justify-center mr-3 font-bold text-sm">SF</div>
+                                <div>
+                                    <h5 class="text-xs font-bold text-slate-900">Salesforce Certified Administrator</h5>
+                                    <span class="text-[11px] text-slate-500">Verified Platform Credential[cite: 1]</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 rounded-xl bg-salesforce-sky border border-slate-200">
+                                <div class="w-9 h-9 rounded-lg bg-salesforce-darkBlue text-white flex items-center justify-center mr-3 font-bold text-sm">PD1</div>
+                                <div>
+                                    <h5 class="text-xs font-bold text-slate-900">Platform Developer I (PDI)</h5>
+                                    <span class="text-[11px] text-slate-500">Advanced Apex & LWC[cite: 1]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Projects Section (Reduced to 3 Projects as requested) -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-salesforce-blue uppercase tracking-widest">Featured Work</h2>
+                <h3 class="text-3xl font-extrabold text-slate-900">Portfolio Projects</h3>
+                <p class="text-slate-600">Enterprise solutions built with precision, leveraging Apex, Financial Services Cloud, and advanced automation.</p>
+            </div>
+
+            <!-- 3 Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                    <div class="h-48 bg-gradient-to-br from-salesforce-darkBlue to-salesforce-blue p-6 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute -right-6 -bottom-6 opacity-10 text-white text-9xl font-mono font-bold">01</div>
+                        <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur-sm self-start">Financial Services Cloud</span>
+                        <h4 class="text-xl font-bold text-white relative z-10">Custom Billing & Renewal Optimizer</h4>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Engineered a custom Lightning Platform billing application integrating LWC, Apex, and Flow Builder within an FSC environment, successfully achieving an 87% reduction in late renewals[cite: 1].
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Apex Triggers</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">LWC</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Flow Builder</span>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+                                <span>Impact: -87% Late Renewals[cite: 1]</span>
+                                <span class="text-salesforce-blue font-bold flex items-center group-hover:translate-x-1 transition-transform">Case Study <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                    <div class="h-48 bg-gradient-to-br from-blue-600 to-indigo-700 p-6 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute -right-6 -bottom-6 opacity-10 text-white text-9xl font-mono font-bold">02</div>
+                        <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur-sm self-start">Service Cloud</span>
+                        <h4 class="text-xl font-bold text-white relative z-10">Case Resolution Accelerator</h4>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Optimized Service Cloud architecture by deploying automated Email-to-Case and Web-to-Case pathways, cutting average resolution times by 31% for operations and advisor teams[cite: 1].
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Service Cloud</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Email-to-Case</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Process Automation</span>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+                                <span>Impact: -31% Resolution Time[cite: 1]</span>
+                                <span class="text-salesforce-blue font-bold flex items-center group-hover:translate-x-1 transition-transform">Case Study <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col group">
+                    <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 p-6 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute -right-6 -bottom-6 opacity-10 text-white text-9xl font-mono font-bold">03</div>
+                        <span class="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur-sm self-start">Integration & Security</span>
+                        <h4 class="text-xl font-bold text-white relative z-10">REST API & Shield Governance Suite</h4>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Designed robust REST/SOAP API synchronizations combined with Salesforce Shield, MFA, and SSO governance settings to guarantee 100% data security and enterprise compliance[cite: 1, 2].
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">REST/SOAP APIs</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Salesforce Shield</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">Security Audits</span>
+                            </div>
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+                                <span>Impact: 100% Compliance[cite: 2]</span>
+                                <span class="text-salesforce-blue font-bold flex items-center group-hover:translate-x-1 transition-transform">Case Study <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Hire Me Section -->
+    <section id="contact" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#1B96FF_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact Info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-salesforce-blue/20 border border-salesforce-blue/30 text-salesforce-lightBlue text-xs font-bold uppercase tracking-wider">
+                        <span>Get In Touch</span>
+                    </div>
+                    <h3 class="text-3xl lg:text-4xl font-extrabold text-white tracking-tight">Let's Build Your Next Salesforce Solution</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Whether you need a certified developer for complex Apex/LWC integrations or an administrator to optimize your cloud workflows, let's connect.
+                    </p>
+                    
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-salesforce-lightBlue">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-400">Email Me</span>
+                                <a href="mailto:yaqubajisefini@gmail.com" class="text-sm font-semibold text-white hover:text-salesforce-lightBlue transition-colors">yaqubajisefini@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-salesforce-lightBlue">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-400">Phone Number</span>
+                                <a href="tel:8327237398" class="text-sm font-semibold text-white hover:text-salesforce-lightBlue transition-colors">832-723-7398</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-salesforce-lightBlue">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-400">Location</span>
+                                <span class="text-sm font-semibold text-white">Houston, TX (Hybrid / Relocation Ready)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Card -->
+                <div class="lg:col-span-7" x-data="{ submitted: false }">
+                    <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-xl">
+                        <form @submit.prevent="submitted = true" class="space-y-6" x-show="!submitted">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Your Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-salesforce-blue text-sm" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Email Address</label>
+                                    <input type="email" required class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-salesforce-blue text-sm" placeholder="john@company.com">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Subject / Project Type</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-salesforce-blue text-sm" placeholder="Salesforce Development / Consulting">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Message</label>
+                                <textarea rows="4" required class="w-full bg-slate-900 border border-cloud-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-salesforce-500 transition-colors" placeholder="Tell me about your Salesforce goals or requirements..."></textarea>                            </div>
+                            <button type="submit" class="w-full py-4 rounded-xl bg-salesforce-blue text-white font-bold shadow-lg shadow-salesforce-blue/30 hover:bg-salesforce-lightBlue transition-all text-center">
+                                Send Message
+                            </button>
+                        </form>
+
+                        <!-- Success Alert State -->
+                        <div x-show="submitted" class="py-16 text-center space-y-4" style="display: none;">
+                            <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl border border-emerald-500/30">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Message Sent Successfully!</h4>
+                            <p class="text-slate-400 text-sm max-w-sm mx-auto">Thank you for reaching out. I will review your inquiry and get back to you promptly.</p>
+                            <button @click="submitted = false" class="px-6 py-2.5 rounded-lg bg-slate-700 hover:bg-slate-600 text-white text-xs font-bold transition-all">Send Another Message</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-500 py-10 border-t border-slate-900 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Yaqub Ajisefini. All rights reserved. Built with Tailwind CSS & Salesforce Design Principles.</p>
+            <div class="flex space-x-6 text-slate-400 text-sm">
+                <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:yaqubajisefini@gmail.com" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
